@@ -4,28 +4,37 @@ import matplotlib.pyplot as plt
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from pdfminer.high_level import extract_text
 
 # Function to read a file and return content
 def read_file(file_path):
     """
-    Reads the content of a file given its file path.
+    Reads the content of a file given its file path. It can read both text files and PDFs using PDFminer.six.
 
-        Parameters:
-            file_path (str): The path to the file to be read.
+    Parameters:
+        file_path (str): The path to the file to be read.
 
-        Returns:
-            str: The content of the file as a string.
+    Returns:
+        str: The content of the file as a string.
 
-        Raises:
-            FileNotFoundError: If the file does not exist, prints an 
-                                error message and exits the program.
+    Raises:
+        FileNotFoundError: If the file does not exist, prints an 
+                            error message and exits the program.
     """
-    try:
-        with open(file_path, encoding="utf-8") as file:
-            return file.read()
-    except FileNotFoundError:
-        print(f"Error: The file {file_path} was not found.")
-        exit()
+    if file_path.endswith('.pdf'):
+        try:
+            text_content = extract_text(file_path)
+            return text_content
+        except FileNotFoundError:
+            print(f"Error: The file {file_path} was not found.")
+            exit()
+    else:
+        try:
+            with open(file_path, encoding="utf-8") as file:
+                return file.read()
+        except FileNotFoundError:
+            print(f"Error: The file {file_path} was not found.")
+            exit()
 
 # Function to preprocess text
 def preprocess_text(text, language="english"):
@@ -148,7 +157,8 @@ def map_emotions_to_colors(emotion_counts):
     return [color_map[get_word_sentiment(emotion)] for emotion in emotion_counts.keys()]
 
 # Main analysis
-text = read_file("read.txt")
+text = read_file("read.pdf")
+#text = read_file("read.txt")
 
 tokenized_words = preprocess_text(text, "english")
 
