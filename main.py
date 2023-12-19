@@ -118,11 +118,13 @@ def sentiment_analyse(text):
     """
     score = SentimentIntensityAnalyzer().polarity_scores(text)
     if score['neg'] > score['pos']:
-        print("Negative Sentiment")
+        sentiment = "Negative Sentiment"
     elif score['pos'] > score['neg']:
-        print("Positive Sentiment")
+        sentiment = "Positive Sentiment"
     else:
-        print("Neutral Sentiment")
+        sentiment = "Neutral Sentiment"
+    
+    return sentiment
 
 # Function to get the sentiment of a word
 def get_word_sentiment(word):
@@ -180,6 +182,6 @@ else:
 
 ax.legend()
 #plt.savefig('graph.png')
+plt.title(f'Sentiment Analysis Results: {sentiment_analyse(text)}')
 plt.show()
 
-sentiment_analyse(text)
