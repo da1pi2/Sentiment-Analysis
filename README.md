@@ -31,7 +31,7 @@ We welcome contributions and improvements to the algorithm and the emotions dict
 
 ## License
 
-This project does not currently have a license.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgements
 
