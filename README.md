@@ -17,6 +17,14 @@ The core of our analysis lies in the `naive_linechunk` algorithm, which processe
 
 This project was inspired by [attreyabhatt/Sentiment-Analysis](https://github.com/attreyabhatt/Sentiment-Analysis). It has been modified and adapted to our specific use-case and research questions.
 
+## Installation
+
+To set up the necessary environment for this project, you need to install the requirements. Run the following command in your terminal:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Contributions
 
 We welcome contributions and improvements to the algorithm and the emotions dictionary. Please feel free to submit pull requests.
