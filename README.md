@@ -13,10 +13,6 @@ We utilize two main types of data:
 
 The core of our analysis lies in the `naive_linechunk` algorithm, which processes the text and assigns sentiment based on the emotions dictionary.
 
-## Getting Started
-
-To use this project, clone the repository and ensure you have the necessary Python environment to run the scripts.
-
 ## Inspiration
 
 This project was inspired by [attreyabhatt/Sentiment-Analysis](https://github.com/attreyabhatt/Sentiment-Analysis). It has been modified and adapted to our specific use-case and research questions.
@@ -27,7 +23,7 @@ We welcome contributions and improvements to the algorithm and the emotions dict
 
 ## License
 
-This project does not currently have a license. The original project from which this was derived is licensed under the MIT License.
+This project does not currently have a license.
 
 ## Acknowledgements
 
